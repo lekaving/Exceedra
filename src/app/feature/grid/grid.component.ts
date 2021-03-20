@@ -26,7 +26,7 @@ export class GridComponent implements OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     this.http.get().pipe(takeUntil(this.destroyed$)).subscribe();
 
-    this.uiRates$.subscribe((rates) => {
+    this.uiRates$.pipe(takeUntil(this.destroyed$)).subscribe((rates) => {
       Object.keys(rates[0]).forEach(val => this.displayedColumns.push(val));
     });
   }
