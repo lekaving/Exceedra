@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { combineLatest, of } from 'rxjs';
@@ -49,6 +50,7 @@ describe('GridComponent', () => {
   });
 });
 
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 function buildArray(): UiGrid[] {
   return [{
     date: '2020-01-02',

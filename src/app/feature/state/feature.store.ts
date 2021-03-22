@@ -4,11 +4,13 @@ import { Feature } from './feature.model';
 
 export interface FeatureState {
   data: Feature;
+  loading: boolean;
 }
 
-export function createInitialState(): FeatureState {
-  return {} as FeatureState;
-}
+const createInitialState = (): FeatureState => ({
+    data: {} as Feature,
+    loading: true
+  });
 
 @Injectable({providedIn: 'root'})
 @StoreConfig({name: 'feature'})

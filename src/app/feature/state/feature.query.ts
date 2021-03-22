@@ -11,20 +11,14 @@ export class FeatureQuery extends Query<FeatureState> {
   uiRates$: Observable<UiGrid[]> = this.select((state) => state?.data?.rates)
     .pipe(
       filter((res) => !!res),
-      map((rates) => {
-        return Object.keys(rates).sort().reduce(
+      map((rates) => Object.keys(rates).sort().reduce(
           (obj: Rate, key: string) => {
             obj[key] = rates[key];
             return obj;
           },
           {}
-        );
-      }),
-      map(((rates: Rate) => {
-        return Object.keys(rates).map((val) => {
-          return ({date: val, ...rates[val]});
-        });
-      })));
+        )),
+      map(((rates: Rate) => Object.keys(rates).map((val) => ({date: val, ...rates[val]})))));
 
   constructor(protected store: FeatureStore) {
     super(store);

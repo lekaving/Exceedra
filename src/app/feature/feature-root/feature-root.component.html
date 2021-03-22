@@ -1,5 +1,9 @@
-<h2>Feature grid</h2>
-<p>add some loading here</p>
+<h2 attr.aria-label="Feature grid">Feature grid</h2>
 <div class="wrapper">
+  <div *ngIf="(loading$ | async) === false else loading"></div>
   <router-outlet></router-outlet>
 </div>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

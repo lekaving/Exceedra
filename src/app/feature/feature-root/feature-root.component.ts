@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FeatureQuery } from '../state/feature.query';
 
 @Component({
   selector: 'app-feature-root',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeatureRootComponent implements OnInit {
 
-  constructor() { }
+  loading$ = this.query.selectLoading();
+  constructor(private readonly query: FeatureQuery) { }
 
   ngOnInit(): void {
   }
